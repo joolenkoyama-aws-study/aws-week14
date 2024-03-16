@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       {/*<h1>User List</h1>*/}
-      <h1>User List GitHub Actions Test v5</h1>
+      <h1>User List GitHub Actions Test v6</h1>
       <ul>
         {users.map((user) => (
           <li>
