@@ -36,7 +36,8 @@ jobs:
         id: build-web
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-nginx
+#          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-nginx
+          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-week12-nginx
           DOCKER_FILE: ./docker/nginx/Dockerfile.aws
         run: |
           docker build -t ${ECR_REPOSITORY} . -f ${DOCKER_FILE}
@@ -48,7 +49,8 @@ jobs:
         id: build-app
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-phpfpm
+#          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-phpfpm
+          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-week12-app
           DOCKER_FILE: ./docker/php/Dockerfile.aws
         run: |
           docker build -t ${ECR_REPOSITORY} . -f ${DOCKER_FILE}
