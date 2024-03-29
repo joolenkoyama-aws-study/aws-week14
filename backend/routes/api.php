@@ -18,7 +18,7 @@ Route::get('/dummy-data', function () {
     $data = [
         [
 //            'name' => 'John Doe',
-            'name' => 'Michael Andrew Fox2',
+            'name' => 'Michael Andrew Fox3',
             'email' => 'john.doe@example.com',
             'age' => 30,
         ],
