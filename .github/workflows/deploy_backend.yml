@@ -5,7 +5,8 @@ on:
       - feature/deploy_test
 env:
   SERVICE_NAME: ph5aws
-  ROLE_TO_ASSUME: arn:aws:iam::207095571838:role/GithubActionsRole
+#  ROLE_TO_ASSUME: arn:aws:iam::207095571838:role/GithubActionsRole
+  ROLE_TO_ASSUME: arn:aws:iam::664339584074:role/GitHubActions
 jobs:
   deploy:
     name: Deploy
