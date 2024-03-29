@@ -68,7 +68,8 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ./task_definition.json
-          container-name: ${{ env.SERVICE_NAME }}-web
+#          container-name: ${{ env.SERVICE_NAME }}-web
+          container-name: ${{ env.SERVICE_NAME }}-week12-web
           image: ${{ steps.build-web.outputs.image }}
 
       - name: Fill in the new image ID App
@@ -76,7 +77,8 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ steps.task-def-web.outputs.task-definition }}
-          container-name: ${{ env.SERVICE_NAME }}-phpfpm
+#          container-name: ${{ env.SERVICE_NAME }}-phpfpm
+          container-name: ${{ env.SERVICE_NAME }}-week12-app
           image: ${{ steps.build-app.outputs.image }}
 
       - name: Deploy Amazon ECS
