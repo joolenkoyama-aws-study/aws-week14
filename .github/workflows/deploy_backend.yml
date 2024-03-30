@@ -38,7 +38,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 #          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-nginx
-          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-week12-nginx
+          ECR_REPOSITORY: ${{ env.SERVICE_NAME }}-week12-web
           DOCKER_FILE: ./docker/nginx/Dockerfile.aws
         run: |
           docker build -t ${ECR_REPOSITORY} . -f ${DOCKER_FILE}
