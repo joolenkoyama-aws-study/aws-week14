@@ -33,6 +33,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Get ECS Task Definition
+        id: create-taskdef
+        run: |
+#          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }} | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
+           aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-week12 | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
+
       - name: Build Web
         id: build-web
         env:
@@ -59,11 +65,11 @@ jobs:
           docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest
           echo "::set-output name=image::${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
 #
-      - name: Get ECS Task Definition
-        id: create-taskdef
-        run: |
-#          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }} | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
-          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-week12 | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
+#      - name: Get ECS Task Definition
+#        id: create-taskdef
+#        run: |
+##          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }} | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
+#          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-week12 | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
 
 #      - name: Fill in the new image ID Web
 #        id: task-def-web
