@@ -2,8 +2,8 @@ name: Deploy AWS
 on:
   push:
     branches:
-#      - feature/deploy_test
-      - main
+      - feature/deploy_test
+#      - main
 env:
   SERVICE_NAME: ph5aws
 #  ROLE_TO_ASSUME: arn:aws:iam::207095571838:role/GithubActionsRole
@@ -57,7 +57,7 @@ jobs:
           docker build -t ${ECR_REPOSITORY} . -f ${DOCKER_FILE}
           docker tag ${ECR_REPOSITORY}:latest ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest
           docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest
-#          echo "::set-output name=image::${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
+          echo "::set-output name=image::${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
 
       - name: Get ECS Task Definition
         id: create-taskdef
