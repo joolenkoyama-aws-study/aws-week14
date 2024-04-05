@@ -18,7 +18,7 @@ Route::get('/dummy-data', function () {
     $data = [
         [
 //            'name' => 'John Doe',
-            'name' => 'Michael Andrew Fox4',
+            'name' => 'Michael Andrew Fox5',
             'email' => 'john.doe@example.com',
             'age' => 30,
         ],
@@ -34,4 +34,9 @@ Route::get('/dummy-data', function () {
         ],
     ];
     return response()->json($data);
+});
+
+// 16週で追加
+Route::get('/users', function() {
+    return User::all();
 });
