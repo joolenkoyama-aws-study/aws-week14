@@ -37,6 +37,6 @@ Route::get('/dummy-data', function () {
 });
 
 // 16週で追加
-Route::get('/users', function() {
-    return User::all();
-});
+//Route::get('/users', function() {
+//    return User::all();
+//});
