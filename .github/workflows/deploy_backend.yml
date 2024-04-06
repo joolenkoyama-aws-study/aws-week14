@@ -62,7 +62,6 @@ jobs:
       - name: Get ECS Task Definition
         id: create-taskdef
         run: |
-#          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }} | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
           aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-week12 | jq ".taskDefinition" | jq "del(.compatibilities)" | jq "del(.taskDefinitionArn)" | jq "del(.requiresAttributes)" | jq "del(.revision)" | jq "del(.status)" > ./task_definition.json
 
       - name: Fill in the new image ID Web
