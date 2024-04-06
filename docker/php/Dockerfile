@@ -8,7 +8,9 @@ RUN apt-get update \
   zlib1g-dev \
   mariadb-client \
   unzip \
-  && docker-php-ext-install zip pdo_mysql
+#  && docker-php-ext-install zip pdo_mysql
+  && docker-php-ext-install zip pdo_mysql \
+  && chmod -R 777 /work/web/storage/logs/
 
 # Composer2.0 install
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

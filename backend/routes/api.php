@@ -38,5 +38,6 @@ Route::get('/dummy-data', function () {
 
 // 16週で追加
 Route::get('/users', function() {
+    Log::info('ログ出力テスト');
     return User::all();
 });

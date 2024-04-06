@@ -2,8 +2,8 @@ name: Deploy AWS
 on:
   push:
     branches:
-      - feature/deploy_test
-#      - main
+#      - feature/deploy_test
+      - main
 env:
   SERVICE_NAME: ph5aws
 #  ROLE_TO_ASSUME: arn:aws:iam::207095571838:role/GithubActionsRole
