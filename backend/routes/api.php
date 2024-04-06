@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\User;
 
 /*
@@ -17,10 +16,11 @@ use Illuminate\Foundation\Auth\User;
 */
 
 Route::get('/dummy-data', function () {
+    Log::info('ログ出力テスト /dummy-data v2');
     $data = [
         [
 //            'name' => 'John Doe',
-            'name' => 'Michael Andrew Fox16-1',
+            'name' => 'Michael Andrew Fox16-2',
             'email' => 'john.doe@example.com',
             'age' => 30,
         ],
